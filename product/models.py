@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager 
 from django.utils.translation import gettext as _ 
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -26,6 +27,11 @@ class Product (models.Model) :
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs) 
+
 
 
 class ProductImages (models.Model): 
