@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block css %}
-    <link rel="stylesheet" href="{% static "en/css/index.css" %}">
+  <link rel="stylesheet" href="{% static "en/css/product-details.css" %}">
 {% endblock css %}
-    <link rel="stylesheet" href="{% static "en/css/product-details.css" %}">
+
 
 {% block body %}
         <!--=====================================
@@ -33,7 +33,7 @@
                     <div class="col-lg-6">
                         <div class="details-gallery">
                             <div class="details-label-group">
-                                <label class="details-label new">{{object.flag}}</label>
+                                <label class="details-label new">{{object.fag}}</label>
                                 <label class="details-label off">-10%</label>
                             </div>
                             <ul class="details-preview"> 
@@ -68,7 +68,7 @@
                                 <a href="#">(3 reviews)</a>
                             </div>
                             <h3 class="details-price">
-                                <span>${{object.price}}<small></small></span>
+                                <span>${{object.price}}<small</small></span>
                             </h3>
                             <p class="details-desc">{{object.subtitle}}</p>
                             <div class="details-list-group">
@@ -753,5 +753,4 @@
         <!--=====================================
                  PRODUCT RELATED PART END
         =======================================-->
-
-{% endblock body %}
+        {% endblock body %}
