@@ -9,6 +9,12 @@ class ProductList(ListView):
 class ProductDetail(DetailView):
     model = Product 
 
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        context["related_products"] = Product.objects.filter(brand=product.brand)
+        return context
+
 def add_review(request,slug):
     product = Product.objects.get(slug=slug)
     if request.method == 'POST':
