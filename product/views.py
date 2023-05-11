@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .models import Product
+from .models import Product , Brand
 from django.views.generic import ListView , DetailView
 from .forms import ProductReviewForm
 
@@ -28,3 +28,6 @@ def add_review(request,slug):
             myform.save()
     return redirect(f'/products/{product.slug}')
 
+class BrandList (ListView):
+    model = Brand
+    paginate_by = 50
