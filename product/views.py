@@ -6,6 +6,7 @@ from .forms import ProductReviewForm
 class ProductList(ListView):
     model = Product
     paginate_by = 50
+    extra_context = {'all_count' : Product.objects.all().count()}
 
 class ProductDetail(DetailView):
     model = Product 
@@ -13,7 +14,7 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
-        context["related_products"] = Product.objects.filter(brand=product.brand)
+        context["related_products"] = Product.objects.filter(brand=product.brand)[9:10]
         return context
 
 def add_review(request,slug):

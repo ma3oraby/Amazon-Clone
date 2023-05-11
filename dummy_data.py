@@ -30,13 +30,13 @@ def seed_product(n):
     for x in range(n):
         Product.objects.create(
             name = fake.name() , 
-            image = f"products/{images[random.randint(0,12)]}" , 
+            image = f"products/{images[random.randint(0,5)]}" , 
             price = round(random.uniform(20.99,99.99),2) , 
             sku = random.randint(1000,1000000) , 
             subtitle = fake.text(max_nb_chars=300) , 
             description = fake.text(max_nb_chars=5000) , 
             flag = flags[random.randint(0,2)] , 
-            brand = Brand.objects.get(id=random.randint(1,120)),  
+            brand = Brand.objects.get(id=random.randint(1,101)),  
         )
     print(f'{n} Products Seeded')
 
