@@ -52,5 +52,5 @@ def seed_product_images(n):
     print(f'{n} Products Images Seeded')
 
 # seed_brand(100)
-seed_product(5000)
+seed_product(2000)
 #seed_product_images(10000)

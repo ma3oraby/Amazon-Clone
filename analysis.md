@@ -26,3 +26,22 @@ Profuct :
     - date 
     - product 
 
+========================================== 
+
+Orders analysis : 
+    - code 
+    - status : received -> processed -> shipped 
+    - Total Item
+     -Order Time
+     -Delivery Time
+    - Sub Total 
+    - discount
+    - delivery fee
+    - Total 
+    - Delivery location
+     -Product : 
+         -Name 
+        - quantity  
+         
+
+

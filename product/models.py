@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from taggit.managers import TaggableManager 
 from django.utils.translation import gettext as _ 
 from django.utils.text import slugify
+from utils.generate_code import generate_code
 
 # Create your models here.
 
@@ -29,7 +30,8 @@ class Product (models.Model) :
         return self.name
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
+        #self.slug = slugify(self.name)
+        self.slug = f"{slugify(self.name)-{generate_code()}}"
         super(Product, self).save(*args, **kwargs) 
 
         def avg_rate (self):
