@@ -30,7 +30,7 @@ Profuct :
 
 Orders analysis : 
     - code 
-    - status : received -> processed -> shipped 
+    - status : received -> processed -> shipped -> delivered 
     - Total Item
      -Order Time
      -Delivery Time
@@ -45,3 +45,4 @@ Orders analysis :
          
 
 
+ 

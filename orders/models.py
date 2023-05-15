@@ -55,4 +55,4 @@ class OrderDetail (models.Model):
     price = models.FloatField()
 
     def __str__(self):
-        return str(self.code)
+        return str(self.order)

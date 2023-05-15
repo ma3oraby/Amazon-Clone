@@ -31,7 +31,7 @@ class Product (models.Model) :
     
     def save(self, *args, **kwargs):
         #self.slug = slugify(self.name)
-        self.slug = f"{slugify(self.name)-{generate_code()}}"
+        self.slug = f"{slugify(self.name)}{generate_code()}"
         super(Product, self).save(*args, **kwargs) 
 
         def avg_rate (self):
