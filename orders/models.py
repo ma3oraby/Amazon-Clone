@@ -56,3 +56,14 @@ class OrderDetail (models.Model):
 
     def __str__(self):
         return str(self.order)
+    
+class Coupon(models.Model):
+    code = models.CharField(max_length=10)
+    value = models.FloatField()
+    from_date = models.DateField(default=timezone.now)
+    to_date = models.DateField(default=timezone.now) 
+    quantity = models.IntegerField()
+    image = models.ImageField(upload_to='coupon/')
+
+    def __str__(self) :
+        return self.code
