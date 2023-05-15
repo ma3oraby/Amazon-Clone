@@ -12,3 +12,7 @@ class OrderList(ListView):
     def get_queryset(self):
         data = Order.objects.filter(user=self.request.user)
         return  data
+    
+def checkout (request):
+    return render (request,'orders/checkout.html',{})
+ 
