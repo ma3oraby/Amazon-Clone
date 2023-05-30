@@ -1,6 +1,11 @@
 ##form
 from rest_framework import serializers
-from .models import Product , Brand , ProductReview
+from .models import Product , Brand , ProductReview , ProductImages
+
+class ProductImageSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = ProductImages 
+        fields = '__all__'
 
 
 class BrandSerializer (serializers.ModelSerializer):
@@ -21,12 +26,13 @@ class ProductListSerializers (serializers.ModelSerializer):
     brand = serializers.StringRelatedField() ###brand name only 
     class Meta :
         model = Product
-        fields = '__all__'
+        fields = ['image']
 
 
 class ProductDetailSerializers (serializers.ModelSerializer):
     brand = serializers.StringRelatedField() ###brand name only 
     reviews = ProductReviewSerializer(source='product_review',many=True)
+    images = ProductImageSerializer(source='product_images',many=True)
     class Meta :
         model = Product
         fields = '__all__'
