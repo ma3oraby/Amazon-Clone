@@ -4,6 +4,10 @@ from rest_framework import generics
 from rest_framework.response import Response
 from .models import Product ,Brand
 from .serializers import ProductListSerializers , ProductDetailSerializers ,BrandSerializer , BrandDetailSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+from .mypagination import ProductPagination
+
+
 
 @api_view(['GET'])
 def product_list_api (request):
@@ -13,7 +17,10 @@ def product_list_api (request):
 
 class ProductListAPI(generics.ListCreateAPIView):
     serializer_class = ProductListSerializers
-    queryset = Product.objects.all()[:20]
+    queryset = Product.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name', 'brand','price']
+    pagination_class = ProductPagination
 
 class ProductDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProductDetailSerializers
